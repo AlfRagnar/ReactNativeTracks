@@ -1,5 +1,5 @@
-import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React from 'react';
+import { StyleSheet, Text } from 'react-native';
 
 const TrackCreateScreen = () => {
     return <Text style={styles.trackcreate}>TrackCreateScreen</Text>;
