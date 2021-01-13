@@ -11,6 +11,7 @@ import TrackListScreen from './src/screens/TrackListScreen';
 import { Provider as AuthProvider } from './src/context/authContext';
 import { setNavigator } from './src/navigationRef';
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
+import { Provider as LocationProvider } from './src/context/locationContext';
 
 const switchNavigator = createSwitchNavigator({
   ResolveAuth: ResolveAuthScreen,
@@ -33,14 +34,16 @@ const App = createAppContainer(switchNavigator);
 // eslint-disable-next-line react/display-name
 export default () => {
   return (
-    <AuthProvider>
-      <App
-        ref={(navigator) => {
-          {
-            setNavigator(navigator);
-          }
-        }}
-      />
-    </AuthProvider>
+    <LocationProvider>
+      <AuthProvider>
+        <App
+          ref={(navigator) => {
+            {
+              setNavigator(navigator);
+            }
+          }}
+        />
+      </AuthProvider>
+    </LocationProvider>
   );
 };
