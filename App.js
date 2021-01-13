@@ -10,35 +10,37 @@ import TrackDetailScreen from './src/screens/TrackDetailScreen';
 import TrackListScreen from './src/screens/TrackListScreen';
 import { Provider as AuthProvider } from './src/context/authContext';
 import { setNavigator } from './src/navigationRef';
+import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 
 const switchNavigator = createSwitchNavigator({
-    loginFlow: createStackNavigator({
-        Signup: SignupScreen,
-        Signin: SigninScreen,
+  ResolveAuth: ResolveAuthScreen,
+  loginFlow: createStackNavigator({
+    SignUserUp: SignupScreen,
+    SignUserIn: SigninScreen,
+  }),
+  mainFlow: createBottomTabNavigator({
+    trackListFlow: createStackNavigator({
+      TrackList: TrackListScreen,
+      TrackDetail: TrackDetailScreen,
     }),
-    mainFlow: createBottomTabNavigator({
-        trackListFlow: createStackNavigator({
-            TrackList: TrackListScreen,
-            TrackDetail: TrackDetailScreen,
-        }),
-        TrackCreate: TrackCreateScreen,
-        Account: AccountScreen,
-    }),
+    TrackCreate: TrackCreateScreen,
+    Account: AccountScreen,
+  }),
 });
 
 const App = createAppContainer(switchNavigator);
 
 // eslint-disable-next-line react/display-name
 export default () => {
-    return (
-        <AuthProvider>
-            <App
-                ref={(navigator) => {
-                    {
-                        setNavigator(navigator);
-                    }
-                }}
-            />
-        </AuthProvider>
-    );
+  return (
+    <AuthProvider>
+      <App
+        ref={(navigator) => {
+          {
+            setNavigator(navigator);
+          }
+        }}
+      />
+    </AuthProvider>
+  );
 };
