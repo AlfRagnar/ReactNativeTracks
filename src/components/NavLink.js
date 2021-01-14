@@ -1,7 +1,7 @@
-import React from 'react';
-import { Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Spacer from './Spacer';
-import { withNavigation } from 'react-navigation';
+import React from 'react'
+import { Text, StyleSheet, TouchableOpacity } from 'react-native'
+import Spacer from './Spacer'
+import { withNavigation } from 'react-navigation'
 
 const NavLink = ({ navigation, text, routeName }) => {
   return (
@@ -10,14 +10,14 @@ const NavLink = ({ navigation, text, routeName }) => {
         <Text style={styles.link}>{text}</Text>
       </Spacer>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   link: {
     color: 'blue',
-    marginHorizontal: 30,
-  },
-});
+    marginHorizontal: 30
+  }
+})
 
-export default withNavigation(NavLink);
+export default withNavigation(NavLink)

@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Text, Button, Input } from 'react-native-elements';
-import Spacer from './Spacer';
+import React, { useState } from 'react'
+import { StyleSheet, View } from 'react-native'
+import { Text, Button, Input } from 'react-native-elements'
+import Spacer from './Spacer'
 
 const AuthenticationForm = ({
   headerText,
   errorMessage,
   onSubmit,
-  submitButtonText,
+  submitButtonText
 }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   return (
     <View style={styles.container}>
       <Spacer>
@@ -33,9 +33,7 @@ const AuthenticationForm = ({
             autoCapitalize='none'
             autoCorrect={false}
           />
-          {errorMessage ? (
-            <Text style={styles.error}>{errorMessage}</Text>
-          ) : null}
+          {errorMessage ? (<Text style={styles.error}>{errorMessage}</Text>) : null}
         </Spacer>
         <View style={styles.signupButton}>
           <Button
@@ -45,18 +43,18 @@ const AuthenticationForm = ({
         </View>
       </Spacer>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   signupButton: { marginHorizontal: 20 },
   error: {
     fontSize: 16,
-    color: 'red',
+    color: 'red'
   },
   container: {
-    justifyContent: 'center',
-  },
-});
+    justifyContent: 'center'
+  }
+})
 
-export default AuthenticationForm;
+export default AuthenticationForm
