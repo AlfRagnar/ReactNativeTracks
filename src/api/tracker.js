@@ -2,7 +2,7 @@ import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const instance = axios.create({
-  baseURL: 'http://44d2c7115250.ngrok.io'
+  baseURL: '' //  <--- PUT YOUR NGROK HTTP here  Use ngrok or something similar to handle HTTP tunneling to your API
 })
 
 instance.interceptors.request.use(
